@@ -8,6 +8,7 @@ class MyWindow < Gosu::Window
     super(800,800,false)
     self.caption = "Snake"
     @board_length = 100
+    @font = Gosu::Font.new(self,"Arial",14)
     @square_length = 8 
     @board = [] 
     @movement_delay = 0.05
@@ -23,6 +24,7 @@ class MyWindow < Gosu::Window
     @snake_direct = "up"
     @bit = [Random.rand(@board_length), Random.rand(@board_length)]
     @last = [@board_length/2+2,@board_length/2]
+    @score = 0
   end
 
   def update()
@@ -80,6 +82,7 @@ class MyWindow < Gosu::Window
       @last_moved = Time.now
     end
     if @snake[0][0] == @bit[0] and @snake[0][1] == @bit[1]
+      @score += 1
       @movement_delay -= 0.001
       @snake.push @last
       in_snake = true
@@ -114,6 +117,7 @@ class MyWindow < Gosu::Window
         end
       end
     end
+    @font.draw("#{@score}",10,10,1.0,1.0,1.0,Gosu::Color::WHITE)
   end
 
   def clearBoard()
