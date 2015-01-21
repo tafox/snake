@@ -7,7 +7,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
-	<string>Snake</string>
+	<string>Ruby</string>
 	<key>CFBundleIconFile</key>
 	<string>Snake</string>
 	<key>CFBundleIdentifier</key>
